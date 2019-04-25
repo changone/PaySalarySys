@@ -15,5 +15,9 @@ class PayrollDatabase(object):
     def get_emp(cls, emp_id):
         return cls.emp_dict[emp_id]
 
+    @classmethod
+    def del_emp(cls, emp_id):
+        cls.emp_dict.pop(emp_id)
+
 
 

@@ -3,6 +3,7 @@
 import unittest
 from AddEmployeeTransaction import AddHourlyEmpTransaction, AddSalariedEmpTransaction
 from PayrollDatabase import PayrollDatabase
+from DeleteEmployeeTransaction import DeleteEmployeeTransaction
 
 class TestAddEmployee(unittest.TestCase):
 
@@ -17,3 +18,9 @@ class TestAddEmployee(unittest.TestCase):
         self.assertEqual('张三', emp.name)
         emp2 = PayrollDatabase.get_emp(2)
         self.assertEqual('李四', emp2.name)
+
+    def test_del_employee(self):
+        del_emp_transaction = DeleteEmployeeTransaction()
+        del_emp_transaction.delete_employee_transaction(1)
+        with self.assertRaises(KeyError):
+            PayrollDatabase.get_emp(1)
