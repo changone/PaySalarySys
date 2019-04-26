@@ -18,3 +18,13 @@ class Employee(object):
 
     def set_payment_method(self, method):
         self.payment_method = method
+
+    def get_payment_classification(self):
+        return self.payment_classification
+
+    def get_payment_schedule(self):
+        return self.payment_schedule
+
+    def get_payment_method(self):
+        return self.payment_method
+

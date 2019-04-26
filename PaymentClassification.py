@@ -1,5 +1,5 @@
 # encoding=utf-8
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 
 
 class PaymentClassification(metaclass=ABCMeta):
@@ -9,20 +9,27 @@ class PaymentClassification(metaclass=ABCMeta):
         底薪加提成
         按月直接计算薪水
     """
-
-
-    pass
+    @abstractmethod
+    def calculate_pay(self):
+        pass
 
 
 class HourlyClassification(PaymentClassification):
-    pass
+
+    def calculate_pay(self):
+        pass
+
+    def add_time_card(self, time_card):
+        self.time_card = time_card
 
 
 class SalariedClassification(PaymentClassification):
-    pass
+    def calculate_pay(self):
+        pass
 
 
 class CommissionedClassification(PaymentClassification):
-    pass
+    def calculate_pay(self):
+        pass
 
 
